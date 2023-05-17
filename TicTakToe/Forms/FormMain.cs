@@ -51,7 +51,7 @@ namespace TicTakToe
                 char winner = CheckWinner();
                 if (winner != ' ')
                 {
-                    MessageBox.Show($"Победил игрок {winner}!");
+                    CustomMessage($"Победил игрок {winner}!", "Победа!", MessageBoxIcon.Information);
                     ResetBoard();
                 }
                 else
@@ -75,7 +75,7 @@ namespace TicTakToe
                     }
                     if (draw)
                     {
-                        MessageBox.Show("Игра закончилась вничью.");
+                        CustomMessage("Игра закончилась вничью.", "Ничья",MessageBoxIcon.Information);
                         ResetBoard();
                     }
                 }
@@ -135,6 +135,30 @@ namespace TicTakToe
             }
             currentPlayer = 'X';
             SetStatusText();
+        }
+        //Закрыть приложение
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+        //Показать справку
+        private void referenceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Справка по нажатию клавиши F1.
+        }
+        //Показать сведения
+        private void intelligenceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CustomMessage("Программа Крестики-Нолики разработана студентом группы ПР-49, " +
+                "обучающемся на профиле 09.02.03 «Программирование в компьютерных системах», " +
+                "Сливковым Дмитрием Витальевичем.",
+                intelligenceToolStripMenuItem.Text,
+                MessageBoxIcon.Asterisk);
+        }
+        //Метод отображения всплывающего окна
+        public void CustomMessage(string txt, string head, MessageBoxIcon icon)
+        {
+            MessageBox.Show(txt, head, MessageBoxButtons.OK, icon, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
         }
     }
 }
