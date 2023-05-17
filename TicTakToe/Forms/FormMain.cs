@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TicTakToe.Forms;
 
 namespace TicTakToe
 {
@@ -145,11 +146,13 @@ namespace TicTakToe
         private void referenceToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //Справка по нажатию клавиши F1.
+            FormHelp formHelp = new FormHelp();
+            formHelp.Show();
         }
         //Показать сведения
         private void intelligenceToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CustomMessage("Программа Крестики-Нолики разработана студентом группы ПР-49, " +
+            CustomMessage($"Программа {Text} разработана студентом группы ПР-49, " +
                 "обучающемся на профиле 09.02.03 «Программирование в компьютерных системах», " +
                 "Сливковым Дмитрием Витальевичем.",
                 intelligenceToolStripMenuItem.Text,
